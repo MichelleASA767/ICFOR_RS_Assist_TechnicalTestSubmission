@@ -5,8 +5,8 @@
 
 ////1.Data Input and Definition, AOI Definition, and Object Centering
 var AOI = SHP_JakartaTimur;
-//var referencedata = LocationCrowdAnnotationPerSample;
-//Map.addLayer(LocationCrowdAnnotationPerSample);
+var referencedata = LocationCrowdAnnotationPerSample; //the combined table of locations.csv, samplesLocation.csv, and crowdAnnotationsConsenscusPerSample.csv
+Map.addLayer(LocationCrowdAnnotationPerSample);
 Map.addLayer(AOI);
 Map.centerObject(AOI);
 
