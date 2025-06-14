@@ -5,8 +5,8 @@
 
 ////1.Data Input and Definition, AOI Definition, and Object Centering
 var AOI = SHP_JakartaTimur;
-var referencedata = LocationCrowdAnnotationPerSample;
-Map.addLayer(LocationCrowdAnnotationPerSample);
+//var referencedata = LocationCrowdAnnotationPerSample;
+//Map.addLayer(LocationCrowdAnnotationPerSample);
 Map.addLayer(AOI);
 Map.centerObject(AOI);
 
@@ -105,3 +105,35 @@ Map.addLayer(imageWithIndices.select('ndwi'), visNDWI, 'NDWI');
 Map.addLayer(imageWithIndices.select('nbr'), visNBR, 'NBR');
 Map.addLayer(imageWithIndices.select('savi'), visSAVI, 'SAVI');
 Map.addLayer(imageWithIndices.select('evi2'), visEVI2, 'EVI2');
+
+//=====================================================================================================//
+//                      Next Step if Reference Data is Imbued with Pile Class                          //
+//                 (Disclaimer :Code is implemented from my own experience in GEE)                     //
+//=====================================================================================================//
+
+////5. Extracting VI Value from Reference Data
+//var VIExtractsSta = imageWithIndices.reduceRegions({
+  //collection: Point,
+ // reducer: ee.Reducer.first(),
+  //scale: 30
+//}).filter(ee.Filter.notNull(['ndvi', 'ndwi', 'nbr', 'savi', 'evi2'])); 
+
+//print('Extracted spectral indices by point:', VIExtractsSta);
+//Map.addLayer(Point, {}, 'Sample Points');
+
+////6. Training Data in Random Forest
+// Assume point features have a property called 'PileClass'
+//var classifier = ee.Classifier.smileRandomForest(10).train({
+  //features: VIExtractsSta,
+  //classProperty: 'PileClass',
+  //inputProperties: ['ndvi', 'ndwi', 'nbr', 'savi', 'evi2']
+//});
+
+//var classified = VIimage.classify(classifier, 'predicted');
+
+//Map.addLayer(classified, {min: 1, max: 7, palette: ['green', 'yellow', 'blue', 'gray', 'red', 'purple', 'brown']}, 'Predicted Land Cover');
+
+////7. Confusion Matrix and Overall Accuracy
+//var confusionMatrix = classifier.confusionMatrix();
+//print('Confusion matrix:', confusionMatrix);
+//print('Overall Accuracy:', confusionMatrix.accuracy());
