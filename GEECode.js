@@ -105,6 +105,7 @@ Map.addLayer(imageWithIndices.select('ndwi'), visNDWI, 'NDWI');
 Map.addLayer(imageWithIndices.select('nbr'), visNBR, 'NBR');
 Map.addLayer(imageWithIndices.select('savi'), visSAVI, 'SAVI');
 Map.addLayer(imageWithIndices.select('evi2'), visEVI2, 'EVI2');
+//All of the above code have been tested and ran without error, and provide the map visualization that is indicated
 
 //=====================================================================================================//
 //                      Next Step if Reference Data is Imbued with Pile Class                          //
